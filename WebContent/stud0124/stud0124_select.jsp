@@ -44,7 +44,8 @@
 			</tr>
 			<%
 				try{
-					String sql = "select * from stud0124 order by studno asc";
+					//String sql = "select * from stud0124 order by studno asc";
+					String sql = "select a.studno,a.name,b.deptName,a.position,a.address,a.phone,a.hobby from stud0124 a, dept0124 b where a.dept=b.deptcode order by studno asc";
 					pstmt = conn.prepareStatement(sql);
 					rs = pstmt.executeQuery();
 					while(rs.next()){
@@ -56,6 +57,7 @@
 						String phone = rs.getString(6);
 						String hobby = rs.getString(7);
 						
+						/* 
 						if(dept.equals("1")){dept="컴퓨터공학과";}
 						if(dept.equals("2")){dept="기계공학과";}
 						if(dept.equals("3")){dept="전자과";}
@@ -64,7 +66,7 @@
 						if(dept.equals("6")){dept="경영학과";}
 						if(dept.equals("7")){dept="무역학과";}
 						if(dept.equals("8")){dept="교육학과";}
-						
+						 */
 						%>
 						<tr>
 							<td><%=studno %></td>

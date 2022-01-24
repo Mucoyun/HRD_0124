@@ -37,10 +37,25 @@ CREATE SEQUENCE seq_idx0124
 	MAXVALUE 999999
 	CYCLE
 ;
-
-
 select seq_idx0124.nextval from dual;
 select seq_idx0124.currval from dual;
+
+
+CREATE TABLE dept0124(
+	deptCode NUMBER(2) NOT NULL PRIMARY KEY,
+	deptName VARCHAR2(40) NOT NULL
+);
+INSERT INTO dept0124 VALUES(1, '컴퓨터공학과');
+INSERT INTO dept0124 VALUES(2, '기계공학과');
+INSERT INTO dept0124 VALUES(3, '전자과');
+INSERT INTO dept0124 VALUES(4, '영문학과');
+INSERT INTO dept0124 VALUES(5, '일어과');
+INSERT INTO dept0124 VALUES(6, '경영학과');
+INSERT INTO dept0124 VALUES(7, '무역학과');
+INSERT INTO dept0124 VALUES(8, '교육학과');
+
+
+
 
 
 select
@@ -53,7 +68,4 @@ order by
 	id asc
 ;
 
-
-오혜수님
-600체인
 
