@@ -9,37 +9,29 @@
 <body>
 	<%@ include file="/DBConn.jsp" %>
 	<%
-		String studno = request.getParameter("studno");
-		String name = request.getParameter("name");
-		String dept = request.getParameter("dept");
-		String position = request.getParameter("position");
-		String address = request.getParameter("address");
-		String phone = request.getParameter("phone");
-		String[] hobby = request.getParameterValues("hobby");
-		String hobbys = "";
+		String id = request.getParameter("id");
+		String subject_name = request.getParameter("subject_name");
+		String credit = request.getParameter("credit");
+		String lecturer = request.getParameter("lecturer");
+		String week = request.getParameter("week");
+		String start_hour = request.getParameter("start_hour");
+		String end_hour = request.getParameter("end_hour");
 		
-		for(String h : hobby){
-			if(h == hobby[0]){
-				hobbys = h;
-			}else{
-				hobbys = hobbys + "," + h;
-			}
-		}
 		
 		try{
-			String sql = "update stud0124 set name=?,dept=?,position=?,address=?,phone=?,hobby=? where studno=?";
+			String sql = "update sub0124 set subject_name=?,credit=?,lecturer=?,week=?,start_hour=?,end_hour=? where id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, dept);
-			pstmt.setString(3, position);
-			pstmt.setString(4, address);
-			pstmt.setString(5, phone);
-			pstmt.setString(6, hobbys);
-			pstmt.setString(7, studno);
+			pstmt.setString(1, subject_name);
+			pstmt.setString(2, credit);
+			pstmt.setString(3, lecturer);
+			pstmt.setString(4, week);
+			pstmt.setString(5, start_hour);
+			pstmt.setString(6, end_hour);
+			pstmt.setString(7, id);
 			pstmt.executeUpdate();
 			%><script>
 				alert("수정이 완료되었습니다.");
-				location.href = "/HRD_0124/stud0124/stud0124_select.jsp";
+				location.href = "/HRD_0124/sub0124/sub0124_select.jsp";
 			</script><%
 		}catch(SQLException e){
 			e.printStackTrace();

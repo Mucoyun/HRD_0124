@@ -127,7 +127,7 @@
 				</tr>
 				<tr>
 					<td id="btntd" colspan="2">
-						<button type="button" onclick="yes()">등록</button>
+						<button type="button" onclick="yes()">변경</button>
 						<button type="button" onclick="no()">뒤로</button>
 					</td>
 				</tr>
