@@ -1,0 +1,59 @@
+
+CREATE TABLE sub0124(
+	id VARCHAR2(5) NOT NULL PRIMARY KEY,
+	subject_name VARCHAR2(40),
+	credit NUMBER(6),
+	lecturer VARCHAR2(10),
+	week NUMBER(2),
+	start_hour NUMBER(4),
+	end_hour NUMBER(4)
+);
+
+
+CREATE TABLE teach0124(
+	idx NUMBER(6) NOT NULL PRIMARY KEY,
+	name VARCHAR2(10),
+	major VARCHAR2(20),
+	field VARCHAR2(20)
+);
+
+ALTER TABLE teach0124 MODIFY major VARCHAR2(40);
+ALTER TABLE teach0124 MODIFY field VARCHAR2(40);
+
+CREATE TABLE stud0124(
+	studno NUMBER(8) NOT NULL PRIMARY KEY,
+	name VARCHAR2(20) NOT NULL,
+	dept NUMBER(2) NOT NULL,
+	position NUMBER(1) NOT NULL,
+	address VARCHAR2(80),
+	phone VARCHAR2(13),
+	hobby VARCHAR2(80)
+);
+
+DROP SEQUENCE seq_idx0124;
+CREATE SEQUENCE seq_idx0124
+	START WITH 1
+	INCREMENT BY 1
+	MAXVALUE 999999
+	CYCLE
+;
+
+
+select seq_idx0124.nextval from dual;
+select seq_idx0124.currval from dual;
+
+
+select
+	a.id,a.subject_name,a.credit,b.name,a.week,a.start_hour,a.end_hour
+from 
+	sub0124 a, teach0124 b
+where
+	a.lecturer=b.idx
+order by 
+	id asc
+;
+
+
+오혜수님
+600체인
+
